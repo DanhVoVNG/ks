@@ -1,4 +1,4 @@
-data = LOAD 'ge/gamelogs/ks/20170410/185/LoginCacheLog_2017-04-12-0.1155046881.log' USING PigStorage('\n', '-tagPath');
+data = LOAD 'game/ge/gamelogs/ks/20170412/185/LoginCacheLog_2017-04-12-0.1155046881.log' USING PigStorage('\n', '-tagPath');
 A = FILTER data BY (chararray)$1 MATCHES 'PlayerEquipInfo\\.\\.\\.\\.\\..*';
 A = FOREACH A GENERATE
   REGEX_EXTRACT($0, '/ge/gamelogs/ks/\\d{8}/(\\d*)/LoginCacheLog.*', 1), 
